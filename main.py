@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas
 
 st.set_page_config(layout='centered')
 
@@ -22,8 +23,18 @@ with col2:
 
 with row1:
     content2 = """
-        You can find my contact information down below!
+        Below you can see some applications I have made.
         """
     st.write(content2)
 
 
+col3, col4 = st.columns(2)
+df = pandas.read_csv('data.csv', sep=';')
+
+with col3:
+    for index, row in df[:10].iterrows():
+        st.header(row['title'])
+
+with col4:
+    for index, row in df[10:].iterrows():
+        st.header(row['title'])
