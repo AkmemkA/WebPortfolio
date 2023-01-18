@@ -3,6 +3,7 @@ import pandas
 
 st.set_page_config(layout='centered')
 
+
 col0 = st.columns(1)
 col1, empty_col, col2 = st.columns([1.5, 0.5, 2])
 row1 = st.text("Contact Info Check")
