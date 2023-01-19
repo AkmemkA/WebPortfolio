@@ -1,8 +1,13 @@
 import streamlit as st
 import pandas
+from functions import add_bg_from_local
 
 st.set_page_config(layout='centered')
-
+color = st.select_slider(
+    'Select a color of the WebPage',
+    options=['red', 'orange', 'yellow', 'green', 'blue', 'violet'])
+selection = color + '.png'
+add_bg_from_local(selection)
 
 col0 = st.columns(1)
 col1, empty_col, col2 = st.columns([1.5, 0.5, 2])
@@ -28,7 +33,6 @@ with row1:
         Below you can see some applications I have made.
         """
     st.write(content2)
-
 
 col3, col4 = st.columns(2)
 df = pandas.read_csv('data.csv', sep=';')
